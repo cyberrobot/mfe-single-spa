@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Root Config</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
   <!--
     Remove this if you only support browsers that support async/await.
     This is needed by babel to share largeish helper code for compiling async/await in older
@@ -48,7 +53,8 @@
     {
       "imports": {
         "@container/root-config": "//localhost:9000/container-root-config.js",
-        "@mfe-single-spa/navigation": "//localhost:9001/mfe-single-spa-navigation.js"
+        "@mfe-single-spa/navigation": "//localhost:9001/mfe-single-spa-navigation.js",
+        "@mfe-single-spa/styleguide": "//localhost:9002/mfe-single-spa-styleguide.js"
       }
     }
   </script>
@@ -77,6 +83,7 @@
   <main></main>
   <script>
     System.import('@container/root-config');
+    System.import('@mfe-single-spa/styleguide');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>

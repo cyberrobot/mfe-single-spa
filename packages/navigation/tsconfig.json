@@ -2,7 +2,12 @@
   "extends": "ts-config-single-spa",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "paths": {
+      "@mfe-single-spa/styleguide": [
+        "../styleguide/src/mfe-single-spa-styleguide"
+      ]
+    }
   },
   "files": ["src/mfe-single-spa-navigation.tsx"],
   "include": ["src/**/*"],
