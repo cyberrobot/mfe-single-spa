@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
 import { GlobalStylesComponent } from "@mfe-single-spa/styleguide";
-import { Button, Provider } from "reakit";
+import { BrowserRouter, NavLink } from "react-router-dom";
+import { Provider } from "reakit";
 import * as system from "reakit-system-bootstrap";
-import { navigateToUrl } from "single-spa";
 
-interface ReactToolbarItemProps {
-  isActive: boolean;
-}
-
-export default function Root(props) {
+export default function Root() {
   const Header = styled.nav`
     padding: var(--ss-space-3) var(--ss-space-4);
     background: var(--ss-color-foreground);
@@ -38,7 +34,7 @@ export default function Root(props) {
     display: flex;
   `;
 
-  const ReactToolbarItem = styled.a`
+  const ReactToolbarItem = styled(NavLink)`
     color: var(--ss-color-muted);
     margin-left: var(--ss-space-3);
     padding: var(--ss-space-2) calc(var(--ss-space-2) + var(--ss-space-1));
@@ -54,13 +50,30 @@ export default function Root(props) {
       cursor: pointer;
     }
 
-    background: ${(props: ReactToolbarItemProps) =>
-      props.isActive && "var(--ss-color-active-background)"};
+    &.active {
+      background: var(--ss-color-active-background);
+    }
   `;
 
-  const onIsActive = (path) => {
-    return location.pathname.startsWith(path);
-  };
+  const links = [
+    {
+      href: "/dashboard",
+      name: "Dashboard",
+    },
+    {
+      href: "/team",
+      name: "Team",
+    },
+    {
+      href: "/projects",
+      name: "Projects",
+    },
+    {
+      href: "/calendar",
+      name: "Calendar",
+    },
+  ];
+
   return (
     <Provider unstable_system={system}>
       <GlobalStylesComponent />
@@ -72,32 +85,15 @@ export default function Root(props) {
               alt="Logo"
             />
           </Logo>
-          <ReactToolbar>
-            <ReactToolbarItem
-              onClick={(e) => navigateToUrl("/dashboard")}
-              isActive={onIsActive("/dashboard")}
-            >
-              Dashboard
-            </ReactToolbarItem>
-            <ReactToolbarItem
-              onClick={(e) => navigateToUrl("/teams")}
-              isActive={onIsActive("/teams")}
-            >
-              Team
-            </ReactToolbarItem>
-            <ReactToolbarItem
-              onClick={(e) => navigateToUrl("/projects")}
-              isActive={onIsActive("/projects")}
-            >
-              Projects
-            </ReactToolbarItem>
-            <ReactToolbarItem
-              onClick={(e) => navigateToUrl("/calendar")}
-              isActive={onIsActive("/calendar")}
-            >
-              Calendar
-            </ReactToolbarItem>
-          </ReactToolbar>
+          <BrowserRouter>
+            <ReactToolbar>
+              {links.map(({ name, href }, index) => (
+                <ReactToolbarItem key={index} to={href}>
+                  {name}
+                </ReactToolbarItem>
+              ))}
+            </ReactToolbar>
+          </BrowserRouter>
         </div>
       </Header>
     </Provider>

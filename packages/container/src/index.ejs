@@ -79,8 +79,15 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="mfe-single-spa:navigation"></div>
-  <main></main>
+  <template id="mfe-single-spa-layout">
+    <single-spa-router>
+      <nav class="topnav">
+        <application name="@mfe-single-spa/navigation"></application>
+      </nav>
+      <div class="main-content">
+      </div>
+    </single-spa-router>
+  </template>
   <script>
     System.import('@container/root-config');
     System.import('@mfe-single-spa/styleguide');
