@@ -1,0 +1,12 @@
+.ss-primary-layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ss-sidebar {
+  flex: 1;
+}
+
+.ss-main-content {
+  flex: 3;
+}

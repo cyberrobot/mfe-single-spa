@@ -81,10 +81,18 @@
   </noscript>
   <template id="mfe-single-spa-layout">
     <single-spa-router>
-      <nav class="topnav">
-        <application name="@mfe-single-spa/navigation"></application>
-      </nav>
-      <div class="main-content">
+      <div class="ss-primary-layout">
+        <div class="ss-sidebar">
+          <application name="@mfe-single-spa/navigation"></application>
+        </div>
+        <div class="ss-main-content">
+          <route path="dashboard">
+            <h1>Dashboard</h1>
+          </route>
+          <route path="team">
+            <h1>Team</h1>
+          </route>
+        </div>
       </div>
     </single-spa-router>
   </template>

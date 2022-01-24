@@ -5,17 +5,15 @@ import { Provider } from "reakit";
 import * as system from "reakit-system-bootstrap";
 
 export default function Root() {
-  const Header = styled.nav`
-    padding: var(--ss-space-3) var(--ss-space-4);
+  const Navbar = styled.nav`
+    padding: var(--ss-space-3) var(--ss-space-2);
     background: var(--ss-color-foreground);
+    height: 100vh;
+    font-family: var(--ss-font-family-default);
 
     .header-inner {
       display: flex;
-      justify-content: flex-start;
-      align-items: stretch;
-      max-width: 80rem;
-      margin-left: auto;
-      margin-right: auto;
+      flex-direction: column;
     }
   `;
 
@@ -26,24 +24,27 @@ export default function Root() {
     img {
       width: auto;
       height: 2rem;
+      margin-left: calc(var(--ss-space-2) + var(--ss-space-1));
+    }
+
+    span {
+      color: var(--ss-color-secondary-text);
+      font-size: var(--ss-font-size-3);
+      margin-left: var(--ss-space-2);
     }
   `;
 
   const ReactToolbar = styled.div`
-    margin-left: var(--ss-space-4);
     display: flex;
+    flex-direction: column;
+    margin-top: var(--ss-space-4);
   `;
 
   const ReactToolbarItem = styled(NavLink)`
     color: var(--ss-color-muted);
-    margin-left: var(--ss-space-3);
     padding: var(--ss-space-2) calc(var(--ss-space-2) + var(--ss-space-1));
     border-radius: var(--ss-radius-border);
     text-decoration: none;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
 
     &:hover {
       background: var(--ss-color-hover-muted);
@@ -77,13 +78,14 @@ export default function Root() {
   return (
     <Provider unstable_system={system}>
       <GlobalStylesComponent />
-      <Header aria-label="Header" className="single-spa-theme">
+      <Navbar aria-label="Header" className="single-spa-theme">
         <div className="header-inner">
           <Logo>
             <img
               src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
               alt="Logo"
             />
+            <span>singlespa</span>
           </Logo>
           <BrowserRouter>
             <ReactToolbar>
@@ -95,7 +97,7 @@ export default function Root() {
             </ReactToolbar>
           </BrowserRouter>
         </div>
-      </Header>
+      </Navbar>
     </Provider>
   );
 }
