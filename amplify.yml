@@ -14,8 +14,13 @@ applications:
         build:
           commands:
             - pnpm run build
+        postBuild:
+          commands:
+            - echo "Commit sha - $AWS_COMMIT_ID"
+            - mkdir -p dist/@single-spa/container/$AWS_COMMIT_ID
+            - mv dist/*.* dist/@single-spa/container/$AWS_COMMIT_ID
       artifacts:
-        baseDirectory: /dist
+        baseDirectory: /dist/@single-spa/container/$AWS_COMMIT_ID
         files:
           - "**/*"
       cache:
