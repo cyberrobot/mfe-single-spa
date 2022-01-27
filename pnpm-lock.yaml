@@ -180,7 +180,6 @@ importers:
       '@babel/preset-typescript': ^7.15.0
       '@babel/runtime': ^7.15.3
       '@emotion/react': ^11.7.1
-      '@emotion/styled': ^11.6.0
       '@testing-library/jest-dom': ^5.14.1
       '@testing-library/react': ^12.0.0
       '@types/jest': ^27.0.1
@@ -216,7 +215,6 @@ importers:
       webpack-merge: ^5.8.0
     dependencies:
       '@emotion/react': 11.7.1_91de5bc04873a2ecfed8879f8166219d
-      '@emotion/styled': 11.6.0_5e8f57678a77e349831a88361eba8fdc
       '@types/jest': 27.4.0
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
