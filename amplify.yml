@@ -12,7 +12,7 @@ applications:
             - pnpm install
         build:
           commands:
-            - pnpm run build:webpack
+            - pnpm run build
       artifacts:
         baseDirectory: /dist
         files:
@@ -32,7 +32,7 @@ applications:
             - pnpm install
         build:
           commands:
-            - pnpm run build:webpack
+            - pnpm run build
       artifacts:
         baseDirectory: /dist
         files:
@@ -52,7 +52,7 @@ applications:
             - pnpm install
         build:
           commands:
-            - pnpm run build:webpack
+            - pnpm run build
       artifacts:
         baseDirectory: /dist
         files:
