@@ -1,0 +1,62 @@
+version: 1
+applications:
+  - appRoot: packages/container
+    env:
+      variables:
+        AMPLIFY_MONOREPO_APP_ROOT: packages/container
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6
+            - pnpm install
+        build:
+          commands:
+            - pnpm run build:webpack
+      artifacts:
+        baseDirectory: /dist
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
+  - appRoot: packages/navigation
+    env:
+      variables:
+        AMPLIFY_MONOREPO_APP_ROOT: packages/navigation
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6
+            - pnpm install
+        build:
+          commands:
+            - pnpm run build:webpack
+      artifacts:
+        baseDirectory: /dist
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
+  - appRoot: packages/styleguide
+    env:
+      variables:
+        AMPLIFY_MONOREPO_APP_ROOT: packages/styleguide
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6
+            - pnpm install
+        build:
+          commands:
+            - pnpm run build:webpack
+      artifacts:
+        baseDirectory: /dist
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
