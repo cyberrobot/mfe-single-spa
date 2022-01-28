@@ -4,7 +4,7 @@ applications:
     env:
       variables:
         AMPLIFY_MONOREPO_APP_ROOT: packages/container
-        AMPLIFY_DIFF_DEPLOY: true
+        AMPLIFY_DIFF_DEPLOY: false
     frontend:
       phases:
         preBuild:
@@ -30,7 +30,7 @@ applications:
     env:
       variables:
         AMPLIFY_MONOREPO_APP_ROOT: packages/navigation
-        AMPLIFY_DIFF_DEPLOY: true
+        AMPLIFY_DIFF_DEPLOY: false
     frontend:
       phases:
         preBuild:
@@ -51,7 +51,7 @@ applications:
     env:
       variables:
         AMPLIFY_MONOREPO_APP_ROOT: packages/styleguide
-        AMPLIFY_DIFF_DEPLOY: true
+        AMPLIFY_DIFF_DEPLOY: false
     frontend:
       phases:
         preBuild:
