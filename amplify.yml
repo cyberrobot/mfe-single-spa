@@ -20,9 +20,10 @@ applications:
             - mkdir -p dist/@single-spa/container/$AWS_COMMIT_ID
             - mv dist/*.* dist/@single-spa/container/$AWS_COMMIT_ID
       artifacts:
-        baseDirectory: /dist/@single-spa/container
+        baseDirectory:
+          - "/dist/@single-spa/container/$AWS_COMMIT_ID"
         files:
-          - "$AWS_COMMIT_ID/**/*"
+          - "**/*"
       cache:
         paths:
           - node_modules/**/*
