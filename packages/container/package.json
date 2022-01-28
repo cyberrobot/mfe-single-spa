@@ -42,5 +42,8 @@
     "single-spa": "^5.9.3",
     "single-spa-layout": "^2.0.1"
   },
-  "types": "dist/container-root-config.d.ts"
+  "types": "dist/container-root-config.d.ts",
+  "engines": {
+    "node": "16.13.2"
+  }
 }
