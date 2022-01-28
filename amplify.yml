@@ -18,14 +18,11 @@ applications:
           commands:
             - echo "Commit sha - $AWS_COMMIT_ID"
             - mkdir -p dist/@single-spa/container/$AWS_COMMIT_ID
-            - echo dist/@single-spa
-            - echo dist/@single-spa/container
-            - echo dist/@single-spa/container/$AWS_COMMIT_ID
             - mv dist/*.* dist/@single-spa/container/$AWS_COMMIT_ID
       artifacts:
-        baseDirectory: dist/@single-spa/container/${AWS_COMMIT_ID}
+        baseDirectory: /dist/@single-spa/container
         files:
-          - "**/*"
+          - "$AWS_COMMIT_ID/**/*"
       cache:
         paths:
           - node_modules/**/*
